@@ -1,0 +1,15 @@
+[package]
+name = "dct-safe-meta"
+version = "0.0.0"
+authors = ["you"]
+edition = "2018"
+publish = false
+
+[dev-dependencies]
+
+[dependencies.dct-safe]
+path = ".."
+
+[dependencies.dharitri-sc-meta]
+version = "0.13.4"
+default-features = false

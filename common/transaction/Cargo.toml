@@ -1,0 +1,14 @@
+[package]
+name = "transaction"
+version = "0.0.0"
+authors = ["dorin-iancu <dorin.iancu@dharitri.com>"]
+edition = "2018"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.eth-address]
+path = "../eth-address"
+
+[dependencies.dharitri-sc]
+version = "0.13.4"

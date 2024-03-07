@@ -1,0 +1,42 @@
+[package]
+name = "multisig"
+version = "0.0.0"
+authors = ["Andrei Marinica <andrei.marinica@dharitri.com>, Dorin Iancu <dorin.iancu@dharitri.com>"]
+edition = "2018"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.transaction]
+path = "../common/transaction"
+
+[dependencies.eth-address]
+path = "../common/eth-address"
+
+[dependencies.fee-estimator-module]
+path = "../common/fee-estimator-module"
+
+[dependencies.token-module]
+path = "../common/token-module"
+
+[dependencies.tx-batch-module]
+path = "../common/tx-batch-module"
+
+[dependencies.max-bridged-amount-module]
+path = "../common/max-bridged-amount-module"
+
+[dependencies.dct-safe]
+path = "../dct-safe"
+
+[dependencies.multi-transfer-dct]
+path = "../multi-transfer-dct"
+
+[dependencies.dharitri-sc]
+version = "0.13.4"
+
+[dependencies.dharitri-sc-modules]
+version = "0.13.4"
+
+[dev-dependencies.dharitri-sc-scenario]
+version = "0.13.4"

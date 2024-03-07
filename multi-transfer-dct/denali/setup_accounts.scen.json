@@ -1,0 +1,82 @@
+{
+    "name": "setup accounts",
+    "steps": [
+        {
+            "step": "setState",
+            "accounts": {
+                "address:owner": {
+                    "nonce": "0",
+                    "balance": "0",
+                    "storage": {}
+                },
+                "address:user1": {
+                    "nonce": "0",
+                    "balance": "0",
+                    "storage": {}
+                },
+                "address:user2": {
+                    "nonce": "0",
+                    "balance": "0",
+                    "storage": {}
+                }
+            },
+            "newAddresses": [
+                {
+                    "creatorAddress": "address:owner",
+                    "creatorNonce": "0",
+                    "newAddress": "sc:multi_transfer_dct"
+                }
+            ]
+        },
+        {
+            "step": "scDeploy",
+            "txId": "deploy",
+            "tx": {
+                "from": "address:owner",
+                "contractCode": "file:../output/multi-transfer-dct.wasm",
+                "value": "0",
+                "arguments": [],
+                "gasLimit": "20,000,000",
+                "gasPrice": "0"
+            },
+            "expect": {
+                "status": "0",
+                "message": "",
+                "gas": "*",
+                "refund": "*"
+            }
+        },
+        {
+            "step": "setState",
+            "comment": "setting local mint role",
+            "accounts": {
+                "sc:multi_transfer_dct": {
+                    "nonce": "0",
+                    "balance": "0",
+                    "dct": {
+                        "str:BRIDGE-123456": {
+                            "balance": "0",
+                            "roles": [
+                                "DCTRoleLocalMint"
+                            ]
+                        },
+                        "str:WRAPPED-123456": {
+                            "balance": "0",
+                            "roles": [
+                                "DCTRoleLocalMint"
+                            ]
+                        }
+                    },
+                    "storage": {
+                        "str:maxTxBatchSize": "10",
+                        "str:maxTxBatchBlockDuration": "3,600",
+                        "str:firstBatchId": "1",
+                        "str:lastBatchId": "1"
+                    },
+                    "code": "file:../output/multi-transfer-dct.wasm",
+                    "owner": "address:owner"
+                }
+            }
+        }
+    ]
+}
